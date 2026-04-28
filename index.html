@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Al Sarab Cafeteria — Since 1988</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #e8470a;
+      --dark-orange: #c03a06;
+      --cream: #111111;
+      --dark: #ffffff;
+      --mid: #f9f9f9;
+      --mid2: #f0f0f0;
+      --light-text: #666666;
+      --white: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--dark);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 56px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(232,71,10,0.18);
+    }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.55rem; letter-spacing: 0.14em; color: var(--orange); }
+    .nav-logo span { color: var(--cream); }
+    nav ul { list-style: none; display: flex; gap: 38px; align-items: center; }
+    nav ul li a { text-decoration: none; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); transition: color 0.2s; }
+    nav ul li a:hover { color: var(--orange); }
+    .nav-order-btn { background: var(--orange) !important; color: var(--white) !important; padding: 10px 24px; transition: background 0.2s !important; }
+    .nav-order-btn:hover { background: var(--dark-orange) !important; }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 55% 45%; position: relative; overflow: hidden; }
+
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 140px 60px 80px 80px;
+      position: relative; z-index: 2;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 30px;
+    }
+    .hero-tag::before { content: ''; display: block; width: 32px; height: 2px; background: var(--orange); }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(5rem, 8.5vw, 9rem); line-height: 0.9; letter-spacing: 0.015em; color: var(--cream); margin-bottom: 14px; }
+    h1 .highlight { color: var(--orange); }
+    .hero-arabic { font-family: 'Noto Kufi Arabic', sans-serif; font-size: 1.7rem; color: rgba(17,17,17,0.5); margin-bottom: 30px; }
+    .hero-desc { font-size: 1.05rem; line-height: 1.75; color: var(--light-text); max-width: 400px; margin-bottom: 46px; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { background: var(--orange); color: var(--white); padding: 16px 38px; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--dark-orange); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--cream); padding: 15px 38px; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; text-decoration: none; border: 1.5px solid rgba(17,17,17,0.2); display: inline-block; transition: border-color 0.2s, color 0.2s, transform 0.15s; }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+    .hero-since { margin-top: 56px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(102,102,102,0.6); }
+
+    .hero-right { position: relative; background: var(--orange); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .hero-right::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 65% 35%, rgba(255,255,255,0.1) 0%, transparent 60%), radial-gradient(ellipse at 25% 85%, rgba(255,255,255,0.25) 0%, transparent 55%);
+    }
+
+    /* Decorative contour rings in hero right */
+    .hero-contour {
+      position: absolute; top: -60px; right: -60px;
+      width: 360px; height: 360px; opacity: 0.12;
+    }
+    .hero-contour circle { fill: none; stroke: var(--dark); stroke-width: 1.5; }
+
+    .hero-panel-inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 40px; }
+    .hero-food-svg { width: min(300px, 68%); margin-bottom: 30px; filter: drop-shadow(0 24px 48px rgba(26,17,8,0.4)); }
+    .hero-logo-text { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.6rem, 5vw, 4.5rem); color: var(--dark); line-height: 1; letter-spacing: 0.06em; }
+    .hero-logo-sub { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-top: 6px; margin-bottom: 28px; }
+    .cuisine-badges { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .cuisine-badge { background: rgba(255,255,255,0.14); color: #ffffff; padding: 7px 16px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; border: 1.5px solid rgba(255,255,255,0.3); }
+    .badge-24-row { margin-top: 28px; display: flex; align-items: center; gap: 12px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.9); }
+    .badge-24 { background: var(--dark); color: var(--orange); font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; padding: 5px 14px; letter-spacing: 0.06em; }
+
+    /* MARQUEE */
+    .marquee-wrap { background: var(--orange); padding: 13px 0; overflow: hidden; white-space: nowrap; }
+    .marquee-track { display: inline-flex; animation: marquee 28s linear infinite; }
+    .marquee-item { display: inline-flex; align-items: center; gap: 18px; padding: 0 28px; font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 0.14em; color: var(--dark); }
+    .marquee-sep { width: 5px; height: 5px; background: rgba(255,255,255,0.5); border-radius: 50%; display: inline-block; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* SECTIONS */
+    .section { padding: 100px 80px; }
+    .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 60px; }
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.4rem, 3.8vw, 3.6rem); letter-spacing: 0.04em; line-height: 1; color: var(--cream); }
+    .section-link { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: gap 0.2s; }
+    .section-link:hover { gap: 14px; }
+
+    /* MENU GRID */
+    .menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+    .menu-card {
+      background: var(--mid); padding: 36px 26px 30px;
+      position: relative; overflow: hidden; cursor: pointer;
+      transition: transform 0.25s, background 0.25s;
+      min-height: 270px; display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .menu-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, transparent 60%, rgba(232,71,10,0.1)); opacity: 0; transition: opacity 0.3s; }
+    .menu-card:hover { transform: translateY(-5px); background: var(--mid2); }
+    .menu-card:hover::after { opacity: 1; }
+    .card-number { position: absolute; top: 20px; right: 20px; font-family: 'Bebas Neue', sans-serif; font-size: 3.8rem; color: rgba(232,71,10,0.1); line-height: 1; }
+    .card-visual { width: 58px; height: 58px; margin-bottom: 18px; flex-shrink: 0; }
+    .card-visual svg { width: 100%; height: 100%; }
+    .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.45rem; letter-spacing: 0.06em; color: var(--cream); margin-bottom: 8px; }
+    .card-desc { font-size: 0.81rem; color: var(--light-text); line-height: 1.55; }
+    .card-price { display: inline-block; margin-top: 16px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: var(--orange); text-transform: uppercase; }
+
+    /* FEATURED */
+    .featured-section { background: #faf8f5; padding: 100px 80px; }
+    .featured-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3px; margin-top: 60px; }
+
+    .feat-card {
+      background: var(--mid); padding: 0 36px 40px;
+      position: relative; overflow: hidden;
+      min-height: 440px; display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .feat-card.main { background: var(--orange); }
+    .feat-card.main .feat-price { color: var(--dark); }
+    .feat-card.main .feat-name  { color: var(--dark); }
+    .feat-card.main .feat-desc  { color: rgba(255,255,255,0.85); }
+    .feat-card.main .feat-tag   { background: rgba(255,255,255,0.2); color: #ffffff; border-color: rgba(255,255,255,0.3); }
+
+    .feat-visual { width: 100%; height: 240px; display: flex; align-items: center; justify-content: center; padding: 24px 24px 0; flex-shrink: 0; }
+    .feat-visual svg { width: 100%; height: 100%; max-height: 200px; }
+
+    .feat-tag { display: inline-block; background: rgba(232,71,10,0.1); color: var(--orange); border: 1px solid rgba(232,71,10,0.15); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 6px 12px; margin-bottom: 14px; }
+    .feat-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.85rem; letter-spacing: 0.04em; color: var(--cream); line-height: 1.05; margin-bottom: 10px; }
+    .feat-desc { font-size: 0.83rem; color: var(--light-text); line-height: 1.6; margin-bottom: 20px; }
+    .feat-price { font-family: 'Bebas Neue', sans-serif; font-size: 2.1rem; color: var(--orange); letter-spacing: 0.04em; }
+    .feat-price span { font-family: 'Barlow', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; opacity: 0.65; }
+
+    /* STATS */
+    .stats-strip { background: var(--orange); display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-cell { padding: 48px 36px; border-right: 1px solid rgba(255,255,255,0.3); text-align: center; }
+    .stat-cell:last-child { border-right: none; }
+    .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--dark); letter-spacing: 0.04em; line-height: 1; }
+    .stat-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-top: 8px; }
+
+    /* BRANCHES */
+    .branches-section { padding: 100px 80px; }
+    .branches-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 60px; }
+    .branch-card { background: var(--mid); padding: 30px 28px; border-left: 3px solid transparent; transition: border-color 0.25s, background 0.25s; position: relative; overflow: hidden; }
+    .branch-card:hover { border-left-color: var(--orange); background: var(--mid2); }
+    .branch-city { font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem; letter-spacing: 0.08em; color: var(--cream); margin-bottom: 6px; }
+    .branch-name { font-size: 0.8rem; color: var(--orange); font-weight: 700; letter-spacing: 0.06em; margin-bottom: 10px; }
+    .branch-phone { font-size: 0.78rem; color: var(--light-text); line-height: 1.75; }
+    .branch-pin { position: absolute; bottom: 16px; right: 16px; opacity: 0.1; }
+
+    /* DELIVERY */
+    .delivery-strip { display: grid; grid-template-columns: 1fr 1fr; }
+    .delivery-left { background: var(--orange); padding: 80px 72px; }
+    .delivery-left h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 4.5vw, 4.5rem); color: var(--dark); letter-spacing: 0.03em; line-height: 0.95; margin-bottom: 20px; }
+    .delivery-left p { font-size: 0.95rem; color: rgba(255,255,255,0.85); line-height: 1.7; max-width: 340px; }
+    .delivery-right { background: var(--dark); padding: 80px 72px; display: flex; flex-direction: column; justify-content: center; gap: 20px; border-top: 1px solid rgba(232,71,10,0.12); }
+    .delivery-number { display: flex; align-items: center; gap: 18px; padding-bottom: 20px; border-bottom: 1px solid rgba(17,17,17,0.06); }
+    .delivery-number:last-child { border-bottom: none; padding-bottom: 0; }
+    .delivery-icon { width: 44px; height: 44px; background: rgba(232,71,10,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .delivery-icon svg { width: 20px; height: 20px; }
+    .delivery-number a { font-family: 'Bebas Neue', sans-serif; font-size: 1.65rem; letter-spacing: 0.08em; color: var(--cream); text-decoration: none; display: block; transition: color 0.2s; }
+    .delivery-number a:hover { color: var(--orange); }
+    .delivery-number small { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--light-text); margin-top: 3px; display: block; }
+
+    /* FOOTER */
+    footer { background: #f5f3f0; padding: 64px 80px 40px; border-top: 1px solid rgba(232,71,10,0.1); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 64px; margin-bottom: 52px; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.1em; color: var(--orange); margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.84rem; color: var(--light-text); line-height: 1.75; max-width: 320px; }
+    .footer-email { display: inline-block; margin-top: 18px; font-size: 0.78rem; color: var(--orange); text-decoration: none; letter-spacing: 0.04em; }
+    .footer-col h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: 0.14em; color: var(--cream); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; font-size: 0.8rem; color: var(--light-text); }
+    .footer-col ul li a { text-decoration: none; color: var(--light-text); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--orange); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid rgba(17,17,17,0.05); }
+    .footer-bottom p { font-size: 0.72rem; color: rgba(102,102,102,0.5); letter-spacing: 0.06em; }
+    .social-links { display: flex; gap: 10px; }
+    .social-link { width: 36px; height: 36px; background: rgba(17,17,17,0.05); display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--light-text); transition: background 0.2s, color 0.2s; }
+    .social-link svg { width: 16px; height: 16px; }
+    .social-link:hover { background: var(--orange); color: var(--white); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-left > * { opacity: 0; animation: fadeUp 0.65s ease forwards; }
+    .hero-tag      { animation-delay: 0.1s; }
+    h1             { animation-delay: 0.2s; }
+    .hero-arabic   { animation-delay: 0.3s; }
+    .hero-desc     { animation-delay: 0.4s; }
+    .hero-ctas     { animation-delay: 0.5s; }
+    .hero-since    { animation-delay: 0.6s; }
+    .hero-right    { animation: fadeUp 0.8s ease 0.25s both; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .branches-grid { grid-template-columns: repeat(2, 1fr); }
+      .featured-grid { grid-template-columns: 1fr 1fr; }
+      .feat-card.main { grid-column: span 2; }
+      .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 820px) {
+      nav { padding: 16px 24px; }
+      nav ul { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { min-height: 60vw; }
+      .hero-left { padding: 120px 32px 60px; }
+      .section, .featured-section, .branches-section { padding: 70px 28px; }
+      .menu-grid { grid-template-columns: 1fr 1fr; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .feat-card.main { grid-column: span 1; }
+      .branches-grid { grid-template-columns: 1fr; }
+      .delivery-strip { grid-template-columns: 1fr; }
+      .delivery-left, .delivery-right { padding: 60px 32px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      footer { padding: 50px 28px 32px; }
+      .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Al <span>Sarab</span></div>
+  <ul>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#featured">Specials</a></li>
+    <li><a href="#branches">Branches</a></li>
+    <li><a href="#delivery" class="nav-order-btn">Order Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Since 1988 · Sharjah &amp; Dubai</div>
+    <h1>AL<br/><span class="highlight">SARAB</span><br/>CAFETERIA</h1>
+    <div class="hero-arabic">كافتيريا السراب</div>
+    <p class="hero-desc">Three decades of bold flavours — Arabic, Chinese, and Indian — served fresh, fast, and with heart across 15+ locations in the UAE.</p>
+    <div class="hero-ctas">
+      <a href="#menu" class="btn-primary">Explore Menu</a>
+      <a href="#delivery" class="btn-outline">Home Delivery</a>
+    </div>
+    <p class="hero-since">Est. 1988 · Open 24 Hours · Available on Talabat</p>
+  </div>
+
+  <div class="hero-right">
+    <!-- Decorative concentric rings -->
+    <svg class="hero-contour" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="180" cy="180" r="60"/><circle cx="180" cy="180" r="90"/>
+      <circle cx="180" cy="180" r="120"/><circle cx="180" cy="180" r="150"/>
+      <circle cx="180" cy="180" r="180"/>
+    </svg>
+
+    <div class="hero-panel-inner">
+      <!-- Illustrated stacked burger -->
+      <img class="hero-food-svg" src="images/hero_burger_1777372372433.png" alt="Stacked Burger" style="object-fit: cover; border-radius: 20px; box-shadow: 0 24px 48px rgba(26,17,8,0.4);" />
+
+      <div class="hero-logo-text">Al Sarab</div>
+      <div class="hero-logo-sub">Cafeteria · Since 1988</div>
+      <div class="cuisine-badges">
+        <span class="cuisine-badge">Arabic</span>
+        <span class="cuisine-badge">Chinese</span>
+        <span class="cuisine-badge">Indian</span>
+      </div>
+      <div class="badge-24-row">
+        <span class="badge-24">24H</span>
+        Open Around the Clock
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Wagyu Slider<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Karak Tea<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Falooda Specials<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Shawarma<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Signature Juices<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Zango Tasty<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Poratta Sandwiches<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Crush Milkshakes<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Dynamite Shrimps<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Club Sandwiches<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Wagyu Slider<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Karak Tea<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Falooda Specials<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Shawarma<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Signature Juices<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Zango Tasty<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Poratta Sandwiches<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Crush Milkshakes<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Dynamite Shrimps<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Club Sandwiches<span class="marquee-sep"></span></span>
+  </div>
+</div>
+
+<!-- MENU CATEGORIES -->
+<section class="section" id="menu">
+  <div class="section-header">
+    <div>
+      <div class="section-label">What We Serve</div>
+      <div class="section-title">OUR MENU</div>
+    </div>
+    <a href="#" class="section-link">Full Menu &rarr;</a>
+  </div>
+
+  <div class="menu-grid">
+
+    <!-- 01 Burgers -->
+    <div class="menu-card">
+      <div class="card-number">01</div>
+      <div class="card-visual">
+        <img src="images/menu_burger_1777372388716.png" alt="Menu Item" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+      </div>
+      <div class="card-title">Burgers &amp; Sandwiches</div>
+      <div class="card-desc">Zinker, Spanish, Italian, Calzoni, Combo Subs and more — freshly made every order.</div>
+      <span class="card-price">From AED 8</span>
+    </div>
+
+    <!-- 02 Wraps -->
+    <div class="menu-card">
+      <div class="card-number">02</div>
+      <div class="card-visual">
+        <img src="images/menu_wrap_1777372405864.png" alt="Menu Item" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+      </div>
+      <div class="card-title">Wraps &amp; Twisters</div>
+      <div class="card-desc">Twister, Wrap &amp; Poratta Sandwiches — crispy, saucy, impossible to resist.</div>
+      <span class="card-price">From AED 12</span>
+    </div>
+
+    <!-- 03 Shawarma -->
+    <div class="menu-card">
+      <div class="card-number">03</div>
+      <div class="card-visual">
+        <img src="images/menu_shawarma_1777372421692.png" alt="Menu Item" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+      </div>
+      <div class="card-title">Arabic Specialties</div>
+      <div class="card-desc">Shawarma, Shish Tawook, Seafood Arabic, Kuku Sarab and authentic flatbreads.</div>
+      <span class="card-price">From AED 6</span>
+    </div>
+
+    <!-- 04 Fried Chicken -->
+    <div class="menu-card">
+      <div class="card-number">04</div>
+      <div class="card-visual">
+        <img src="images/menu_fried_chicken_1777372438970.png" alt="Menu Item" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+      </div>
+      <div class="card-title">Fried &amp; Broast Chicken</div>
+      <div class="card-desc">Crispy fried chicken meals from Snack to Family to Function — feeds a crowd.</div>
+      <span class="card-price">From AED 15</span>
+    </div>
+
+    <!-- 05 Juices -->
+    <div class="menu-card">
+      <div class="card-number">05</div>
+      <div class="card-visual">
+        <img src="images/menu_juice_1777372455880.png" alt="Menu Item" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+      </div>
+      <div class="card-title">Juices &amp; Milkshakes</div>
+      <div class="card-desc">Fresh juices, Signature blends, Tender Coconut specials &amp; Crush Milkshakes.</div>
+      <span class="card-price">From AED 6</span>
+    </div>
+
+    <!-- 06 Karak -->
+    <div class="menu-card">
+      <div class="card-number">06</div>
+      <div class="card-visual">
+        <img src="images/menu_karak_1777372473108.png" alt="Menu Item" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+      </div>
+      <div class="card-title">Karak Tea &amp; Coffee</div>
+      <div class="card-desc">Karak Masala, Zafran, Ginger, Arabic Coffee, Turkish Coffee, Cappuccino and more.</div>
+      <span class="card-price">From AED 1.50</span>
+    </div>
+
+    <!-- 07 Desserts -->
+    <div class="menu-card">
+      <div class="card-number">07</div>
+      <div class="card-visual">
+        <img src="images/menu_dessert_1777372486443.png" alt="Menu Item" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+      </div>
+      <div class="card-title">Desserts &amp; Falooda</div>
+      <div class="card-desc">Ice cream sundaes, Mojitos, Falooda Specials, Fruit Plates &amp; Choco'nut Sundae.</div>
+      <span class="card-price">From AED 7</span>
+    </div>
+
+    <!-- 08 Sides -->
+    <div class="menu-card">
+      <div class="card-number">08</div>
+      <div class="card-visual">
+        <img src="images/menu_fries_1777372505020.png" alt="Menu Item" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+      </div>
+      <div class="card-title">Sides &amp; Snacks</div>
+      <div class="card-desc">Dynamite, Loaded Fries, Indomie Spot, Slice Sandwiches, Fateera &amp; Plate Dishes.</div>
+      <span class="card-price">From AED 3</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-cell">
+    <div class="stat-number">36+</div>
+    <div class="stat-label">Years of Service</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-number">15+</div>
+    <div class="stat-label">Branches UAE-Wide</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-number">300+</div>
+    <div class="stat-label">Menu Items</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-number">24H</div>
+    <div class="stat-label">Open Every Day</div>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<section class="featured-section" id="featured">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Must-Try Dishes</div>
+      <div class="section-title">SIGNATURE PICKS</div>
+    </div>
+  </div>
+
+  <div class="featured-grid">
+
+    <!-- WAGYU SLIDER -->
+    <div class="feat-card main">
+      <div class="feat-visual">
+        <img src="images/feat_wagyu_1777372524447.png" alt="Featured Item" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
+      </div>
+      <span class="feat-tag">Signature Special</span>
+      <div class="feat-name">WAGYU SLIDER<br/>BEEF / CHICKEN</div>
+      <p class="feat-desc">Our most iconic creation — juicy Wagyu patty, fresh greens, served with crispy fries and a chilled Coca-Cola.</p>
+      <div class="feat-price">AED 32 <span>/ slider</span></div>
+    </div>
+
+    <!-- DYNAMITE SHRIMPS -->
+    <div class="feat-card">
+      <div class="feat-visual">
+        <img src="images/feat_shrimp_1777372538036.png" alt="Featured Item" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
+      </div>
+      <span class="feat-tag">Dynamite Series</span>
+      <div class="feat-name">DYNAMITE SHRIMPS</div>
+      <p class="feat-desc">Crispy battered shrimps tossed in a fiery dynamite sauce. A crowd favourite at AED 26.</p>
+      <div class="feat-price">AED 26 <span>/ plate</span></div>
+    </div>
+
+    <!-- FAMILY MEAL -->
+    <div class="feat-card">
+      <div class="feat-visual">
+        <img src="images/feat_family_meal_1777372554145.png" alt="Featured Item" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
+      </div>
+      <span class="feat-tag">Family Meal</span>
+      <div class="feat-name">BROAST FAMILY MEAL</div>
+      <p class="feat-desc">9 pcs chicken + fries, bun, coleslaw, garlic and 1 medium drink. Feed the whole table.</p>
+      <div class="feat-price">AED 55 <span>/ set</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BRANCHES -->
+<section class="branches-section" id="branches">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Find Us</div>
+      <div class="section-title">OUR BRANCHES</div>
+    </div>
+  </div>
+  <div class="branches-grid">
+
+    <div class="branch-card">
+      <div class="branch-city">Dubai</div>
+      <div class="branch-name">Ras Al Khor</div>
+      <div class="branch-phone">04-28 98 333 / 054-4399008</div>
+      <svg class="branch-pin" width="28" height="34" viewBox="0 0 28 34" fill="none"><path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 20 14 20S28 24.5 28 14C28 6.3 21.7 0 14 0z" fill="white"/><circle cx="14" cy="14" r="5" fill="white" opacity="0.4"/></svg>
+    </div>
+    <div class="branch-card">
+      <div class="branch-city">Sharjah</div>
+      <div class="branch-name">Al Ghubaiba</div>
+      <div class="branch-phone">06-5676418 / 06-5676419</div>
+      <svg class="branch-pin" width="28" height="34" viewBox="0 0 28 34" fill="none"><path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 20 14 20S28 24.5 28 14C28 6.3 21.7 0 14 0z" fill="white"/><circle cx="14" cy="14" r="5" fill="white" opacity="0.4"/></svg>
+    </div>
+    <div class="branch-card">
+      <div class="branch-city">Sharjah</div>
+      <div class="branch-name">Al Wahda</div>
+      <div class="branch-phone">06-5325510 / 5323939</div>
+      <svg class="branch-pin" width="28" height="34" viewBox="0 0 28 34" fill="none"><path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 20 14 20S28 24.5 28 14C28 6.3 21.7 0 14 0z" fill="white"/><circle cx="14" cy="14" r="5" fill="white" opacity="0.4"/></svg>
+    </div>
+    <div class="branch-card">
+      <div class="branch-city">Sharjah</div>
+      <div class="branch-name">Shahba</div>
+      <div class="branch-phone">06-5385827 / 5583264</div>
+      <svg class="branch-pin" width="28" height="34" viewBox="0 0 28 34" fill="none"><path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 20 14 20S28 24.5 28 14C28 6.3 21.7 0 14 0z" fill="white"/><circle cx="14" cy="14" r="5" fill="white" opacity="0.4"/></svg>
+    </div>
+    <div class="branch-card">
+      <div class="branch-city">Sharjah</div>
+      <div class="branch-name">University City Road</div>
+      <div class="branch-phone">06-5584070 / 5582007</div>
+      <svg class="branch-pin" width="28" height="34" viewBox="0 0 28 34" fill="none"><path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 20 14 20S28 24.5 28 14C28 6.3 21.7 0 14 0z" fill="white"/><circle cx="14" cy="14" r="5" fill="white" opacity="0.4"/></svg>
+    </div>
+    <div class="branch-card">
+      <div class="branch-city">Ajman</div>
+      <div class="branch-name">Sarab Al Yasmeen</div>
+      <div class="branch-phone">058 850 3399 / 054 245 4594</div>
+      <svg class="branch-pin" width="28" height="34" viewBox="0 0 28 34" fill="none"><path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 20 14 20S28 24.5 28 14C28 6.3 21.7 0 14 0z" fill="white"/><circle cx="14" cy="14" r="5" fill="white" opacity="0.4"/></svg>
+    </div>
+    <div class="branch-card">
+      <div class="branch-city">Dubai</div>
+      <div class="branch-name">Danat Shay</div>
+      <div class="branch-phone">04-2569537</div>
+      <svg class="branch-pin" width="28" height="34" viewBox="0 0 28 34" fill="none"><path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 20 14 20S28 24.5 28 14C28 6.3 21.7 0 14 0z" fill="white"/><circle cx="14" cy="14" r="5" fill="white" opacity="0.4"/></svg>
+    </div>
+    <div class="branch-card">
+      <div class="branch-city">Sharjah</div>
+      <div class="branch-name">Muwaileh Maliha St.</div>
+      <div class="branch-phone">065229695 / 0506352955</div>
+      <svg class="branch-pin" width="28" height="34" viewBox="0 0 28 34" fill="none"><path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 20 14 20S28 24.5 28 14C28 6.3 21.7 0 14 0z" fill="white"/><circle cx="14" cy="14" r="5" fill="white" opacity="0.4"/></svg>
+    </div>
+    <div class="branch-card">
+      <div class="branch-city">Dubai</div>
+      <div class="branch-name">Muhaisnah (t4 tea)</div>
+      <div class="branch-phone">04 331 4733</div>
+      <svg class="branch-pin" width="28" height="34" viewBox="0 0 28 34" fill="none"><path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 20 14 20S28 24.5 28 14C28 6.3 21.7 0 14 0z" fill="white"/><circle cx="14" cy="14" r="5" fill="white" opacity="0.4"/></svg>
+    </div>
+
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<section class="delivery-strip" id="delivery">
+  <div class="delivery-left">
+    <h2>HOME<br/>DELIVERY<br/>AVAILABLE</h2>
+    <p>Order hot, fresh food to your door. Call us directly or order via Talabat. Near Rahmania Mall, Al Rahmaniya, Sharjah.</p>
+  </div>
+  <div class="delivery-right">
+
+    <div class="delivery-number">
+      <div class="delivery-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#e8470a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 012 2.12 2 2 0 014 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+        </svg>
+      </div>
+      <div>
+        <a href="tel:065746472">06 574 6472</a>
+        <small>Main Delivery Line</small>
+      </div>
+    </div>
+
+    <div class="delivery-number">
+      <div class="delivery-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#e8470a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+        </svg>
+      </div>
+      <div>
+        <a href="tel:0502041468">050 204 1468</a>
+        <small>WhatsApp Orders</small>
+      </div>
+    </div>
+
+    <div class="delivery-number">
+      <div class="delivery-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#e8470a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 012 2.12 2 2 0 014 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+        </svg>
+      </div>
+      <div>
+        <a href="tel:0501372435">050 137 2435</a>
+        <small>Alternate Line</small>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Al Sarab Cafeteria</div>
+      <p>Serving the UAE with pride since 1988. Authentic Arabic, Chinese, and Indian flavours — open 24 hours across 15+ branches.</p>
+      <a href="mailto:alsarabgroupae@gmail.com" class="footer-email">alsarabgroupae@gmail.com</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#menu">Full Menu</a></li>
+        <li><a href="#featured">Signature Specials</a></li>
+        <li><a href="#branches">All Branches</a></li>
+        <li><a href="#delivery">Order Delivery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Cuisines</h4>
+      <ul>
+        <li>Arabic</li>
+        <li>Chinese</li>
+        <li>Indian</li>
+        <li>VAT Inclusive Pricing</li>
+        <li>Card Payments Accepted</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Al Sarab Cafeteria. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
