@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Full Menu — Al Sarab Cafeteria</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #e8470a;
+      --dark-orange: #c03a06;
+      --cream: #111111;
+      --dark: #ffffff;
+      --mid: #f9f9f9;
+      --mid2: #f0f0f0;
+      --light-text: #666666;
+      --white: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--dark);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 56px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(232,71,10,0.18);
+    }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.55rem; letter-spacing: 0.14em; color: var(--orange); }
+    .nav-logo span { color: var(--cream); }
+    nav ul { list-style: none; display: flex; gap: 38px; align-items: center; }
+    nav ul li a { text-decoration: none; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); transition: color 0.2s; }
+    nav ul li a:hover { color: var(--orange); }
+    .nav-order-btn { background: var(--orange) !important; color: var(--white) !important; padding: 10px 24px; transition: background 0.2s !important; }
+    .nav-order-btn:hover { background: var(--dark-orange) !important; }
+
+    /* MENU HERO */
+    .menu-hero {
+      padding: 160px 80px 80px;
+      background: var(--dark);
+      text-align: center;
+      border-bottom: 1px solid rgba(232,71,10,0.1);
+      position: relative;
+    }
+    .menu-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); letter-spacing: 0.02em; color: var(--cream); margin-bottom: 14px; }
+    .menu-hero h1 .highlight { color: var(--orange); }
+    .menu-hero p { color: var(--light-text); font-size: 1.1rem; max-width: 500px; margin: 0 auto; line-height: 1.6; }
+
+    /* MENU CATEGORY */
+    .menu-category {
+      padding: 80px;
+    }
+    .menu-category-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--cream);
+      margin-bottom: 40px;
+      border-bottom: 3px solid var(--orange);
+      display: inline-block;
+      padding-bottom: 10px;
+      letter-spacing: 0.05em;
+    }
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .item-card {
+      background: var(--mid);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      z-index: 10;
+    }
+    .item-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      background: var(--mid2);
+    }
+    .item-image {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+      background: rgba(0,0,0,0.05);
+    }
+    .item-details {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .item-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--cream);
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+    .item-desc {
+      font-size: 0.85rem;
+      color: var(--light-text);
+      margin-bottom: 20px;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+    .item-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+    .item-price {
+      font-weight: 700;
+      color: var(--orange);
+      font-size: 1.2rem;
+    }
+    .btn-add {
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      padding: 8px 18px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-add:hover {
+      background: var(--dark-orange);
+      transform: scale(1.05);
+    }
+    .btn-add:active {
+      transform: scale(0.95);
+    }
+
+    /* CART WIDGET */
+    #cart-widget {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--dark);
+      width: 320px;
+      border-radius: 16px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+      transform: translateY(150%);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 1000;
+      overflow: hidden;
+      border: 1px solid rgba(232,71,10,0.2);
+    }
+    #cart-widget.active {
+      transform: translateY(0);
+    }
+    .cart-header {
+      background: var(--orange);
+      color: var(--white);
+      padding: 16px 20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-body {
+      padding: 20px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(17,17,17,0.05);
+    }
+    .cart-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .cart-item-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--cream);
+    }
+    .cart-item-price {
+      font-size: 0.85rem;
+      color: var(--orange);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-remove {
+      background: transparent;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      font-size: 1.2rem;
+      line-height: 1;
+      padding: 0 4px;
+    }
+    .btn-remove:hover {
+      color: var(--orange);
+    }
+    .cart-footer {
+      padding: 20px;
+      background: var(--mid);
+      border-top: 1px solid rgba(17,17,17,0.05);
+    }
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+    .btn-checkout {
+      width: 100%;
+      background: #25D366; /* WhatsApp Green */
+      color: white;
+      border: none;
+      padding: 14px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-checkout:hover {
+      background: #128C7E;
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer { background: #f5f3f0; padding: 64px 80px 40px; border-top: 1px solid rgba(232,71,10,0.1); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 64px; margin-bottom: 52px; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.1em; color: var(--orange); margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.84rem; color: var(--light-text); line-height: 1.75; max-width: 320px; }
+    .footer-email { display: inline-block; margin-top: 18px; font-size: 0.78rem; color: var(--orange); text-decoration: none; letter-spacing: 0.04em; }
+    .footer-col h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: 0.14em; color: var(--cream); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; font-size: 0.8rem; color: var(--light-text); }
+    .footer-col ul li a { text-decoration: none; color: var(--light-text); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--orange); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid rgba(17,17,17,0.05); }
+    .footer-bottom p { font-size: 0.72rem; color: rgba(102,102,102,0.5); letter-spacing: 0.06em; }
+    .social-links { display: flex; gap: 10px; }
+    .social-link { width: 36px; height: 36px; background: rgba(17,17,17,0.05); display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--light-text); transition: background 0.2s, color 0.2s; }
+    .social-link svg { width: 16px; height: 16px; }
+    .social-link:hover { background: var(--orange); color: var(--white); }
+
+    /* RESPONSIVE */
+    @media (max-width: 820px) {
+      nav { padding: 16px 24px; }
+      nav ul { display: none; }
+      .menu-hero { padding: 120px 24px 60px; }
+      .menu-category { padding: 60px 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      footer { padding: 50px 24px 32px; }
+      #cart-widget { bottom: 0; right: 0; width: 100%; border-radius: 16px 16px 0 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><a href="index.html" style="text-decoration:none; color:inherit;">Al <span>Sarab</span></a></div>
+  <ul>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="index.html#featured">Specials</a></li>
+    <li><a href="index.html#branches">Branches</a></li>
+    <li><a href="#cart" class="nav-order-btn" onclick="scrollToCart()">Order Now</a></li>
+  </ul>
+</nav>
+
+<!-- MENU HERO -->
+<header class="menu-hero">
+  <h1>OUR <span class="highlight">FULL MENU</span></h1>
+  <p>Explore our wide variety of dishes. Add your favourites to the cart and checkout seamlessly via WhatsApp.</p>
+</header>
+
+<!-- SIGNATURE BURGERS -->
+<section class="menu-category" id="burgers">
+  <h2 class="menu-category-title">Signature Burgers</h2>
+  <div class="items-grid">
+    <div class="item-card">
+      <img src="images/feat_wagyu_1777372524447.png" class="item-image" alt="Wagyu Slider">
+      <div class="item-details">
+        <h3 class="item-name">Wagyu Slider</h3>
+        <p class="item-desc">Juicy Wagyu patty, fresh greens, and signature sauce.</p>
+        <div class="item-bottom">
+          <span class="item-price">AED 32</span>
+          <button class="btn-add" onclick="addToCart('Wagyu Slider', 32)">Add +</button>
+        </div>
+      </div>
+    </div>
+    <div class="item-card">
+      <img src="images/menu_burger_1777372388716.png" class="item-image" alt="Zinker Burger">
+      <div class="item-details">
+        <h3 class="item-name">Zinker Burger</h3>
+        <p class="item-desc">Crispy fried chicken breast with special zinker sauce and cheese.</p>
+        <div class="item-bottom">
+          <span class="item-price">AED 16</span>
+          <button class="btn-add" onclick="addToCart('Zinker Burger', 16)">Add +</button>
+        </div>
+      </div>
+    </div>
+    <div class="item-card">
+      <img src="images/hero_burger_1777372372433.png" class="item-image" alt="Spanish Burger">
+      <div class="item-details">
+        <h3 class="item-name">Spanish Burger</h3>
+        <p class="item-desc">Stacked beef patty with jalapenos, Spanish sauce, and melted cheese.</p>
+        <div class="item-bottom">
+          <span class="item-price">AED 18</span>
+          <button class="btn-add" onclick="addToCart('Spanish Burger', 18)">Add +</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WRAPS & TWISTERS -->
+<section class="menu-category" id="wraps" style="background: var(--mid);">
+  <h2 class="menu-category-title">Wraps &amp; Twisters</h2>
+  <div class="items-grid">
+    <div class="item-card" style="background: var(--dark);">
+      <img src="images/menu_wrap_1777372405864.png" class="item-image" alt="Zinker Mathafi Wrap">
+      <div class="item-details">
+        <h3 class="item-name">Zinker Mathafi Wrap</h3>
+        <p class="item-desc">Spicy crispy chicken strips wrapped in tortilla with mathafi sauce.</p>
+        <div class="item-bottom">
+          <span class="item-price">AED 15</span>
+          <button class="btn-add" onclick="addToCart('Zinker Mathafi Wrap', 15)">Add +</button>
+        </div>
+      </div>
+    </div>
+    <div class="item-card" style="background: var(--dark);">
+      <img src="images/menu_wrap_1777372405864.png" class="item-image" alt="Chicken Twister">
+      <div class="item-details">
+        <h3 class="item-name">Chicken Twister</h3>
+        <p class="item-desc">Classic chicken twister with lettuce, tomatoes, and mayo.</p>
+        <div class="item-bottom">
+          <span class="item-price">AED 14</span>
+          <button class="btn-add" onclick="addToCart('Chicken Twister', 14)">Add +</button>
+        </div>
+      </div>
+    </div>
+    <div class="item-card" style="background: var(--dark);">
+      <img src="images/menu_shawarma_1777372421692.png" class="item-image" alt="Poratta Sandwich">
+      <div class="item-details">
+        <h3 class="item-name">Oman Chips Poratta</h3>
+        <p class="item-desc">The UAE classic — Oman chips, cheese, and hot sauce in a flaky poratta.</p>
+        <div class="item-bottom">
+          <span class="item-price">AED 8</span>
+          <button class="btn-add" onclick="addToCart('Oman Chips Poratta', 8)">Add +</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAINS & SPECIALS -->
+<section class="menu-category" id="mains">
+  <h2 class="menu-category-title">Mains &amp; Bites</h2>
+  <div class="items-grid">
+    <div class="item-card">
+      <img src="images/menu_fried_chicken_1777372438970.png" class="item-image" alt="Snack Meal">
+      <div class="item-details">
+        <h3 class="item-name">Broast Snack Meal</h3>
+        <p class="item-desc">3 pcs crispy fried chicken, fries, garlic paste, and bun.</p>
+        <div class="item-bottom">
+          <span class="item-price">AED 18</span>
+          <button class="btn-add" onclick="addToCart('Broast Snack Meal', 18)">Add +</button>
+        </div>
+      </div>
+    </div>
+    <div class="item-card">
+      <img src="images/feat_family_meal_1777372554145.png" class="item-image" alt="Family Meal">
+      <div class="item-details">
+        <h3 class="item-name">Broast Family Meal</h3>
+        <p class="item-desc">9 pcs chicken, large fries, buns, coleslaw, and 1 medium drink.</p>
+        <div class="item-bottom">
+          <span class="item-price">AED 55</span>
+          <button class="btn-add" onclick="addToCart('Broast Family Meal', 55)">Add +</button>
+        </div>
+      </div>
+    </div>
+    <div class="item-card">
+      <img src="images/feat_shrimp_1777372538036.png" class="item-image" alt="Dynamite Shrimps">
+      <div class="item-details">
+        <h3 class="item-name">Dynamite Shrimps</h3>
+        <p class="item-desc">Crispy battered shrimps tossed in a fiery dynamite sauce.</p>
+        <div class="item-bottom">
+          <span class="item-price">AED 26</span>
+          <button class="btn-add" onclick="addToCart('Dynamite Shrimps', 26)">Add +</button>
+        </div>
+      </div>
+    </div>
+    <div class="item-card">
+      <img src="images/menu_fries_1777372505020.png" class="item-image" alt="Loaded Fries">
+      <div class="item-details">
+        <h3 class="item-name">Loaded Cheesy Fries</h3>
+        <p class="item-desc">Golden fries topped with melted cheese, jalapenos, and special sauce.</p>
+        <div class="item-bottom">
+          <span class="item-price">AED 16</span>
+          <button class="btn-add" onclick="addToCart('Loaded Cheesy Fries', 16)">Add +</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DRINKS & DESSERTS -->
+<section class="menu-category" id="drinks" style="background: var(--mid);">
+  <h2 class="menu-category-title">Drinks &amp; Desserts</h2>
+  <div class="items-grid">
+    <div class="item-card" style="background: var(--dark);">
+      <img src="images/menu_karak_1777372473108.png" class="item-image" alt="Karak Tea">
+      <div class="item-details">
+        <h3 class="item-name">Signature Karak Tea</h3>
+        <p class="item-desc">Authentic Karak brewed with fresh tea leaves and cardamom.</p>
+        <div class="item-bottom">
+          <span class="item-price">AED 1.50</span>
+          <button class="btn-add" onclick="addToCart('Signature Karak Tea', 1.5)">Add +</button>
+        </div>
+      </div>
+    </div>
+    <div class="item-card" style="background: var(--dark);">
+      <img src="images/menu_juice_1777372455880.png" class="item-image" alt="Fresh Juice">
+      <div class="item-details">
+        <h3 class="item-name">Fresh Orange Juice</h3>
+        <p class="item-desc">100% freshly squeezed orange juice, no added sugar.</p>
+        <div class="item-bottom">
+          <span class="item-price">AED 12</span>
+          <button class="btn-add" onclick="addToCart('Fresh Orange Juice', 12)">Add +</button>
+        </div>
+      </div>
+    </div>
+    <div class="item-card" style="background: var(--dark);">
+      <img src="images/menu_dessert_1777372486443.png" class="item-image" alt="Falooda">
+      <div class="item-details">
+        <h3 class="item-name">Royal Falooda</h3>
+        <p class="item-desc">Rose syrup, vermicelli, sweet basil seeds, milk, topped with ice cream.</p>
+        <div class="item-bottom">
+          <span class="item-price">AED 18</span>
+          <button class="btn-add" onclick="addToCart('Royal Falooda', 18)">Add +</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CART WIDGET -->
+<div id="cart-widget">
+  <div class="cart-header">
+    <span>Your Order (<span id="cart-count">0</span>)</span>
+  </div>
+  <div class="cart-body" id="cart-items">
+    <!-- Cart items will be injected here -->
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span>AED <span id="cart-total">0.00</span></span>
+    </div>
+    <button class="btn-checkout" onclick="checkout()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.52 3.44003C18.24 1.15003 15.18 -0.109969 11.95 -0.109969C5.3 -0.109969 0 5.17003 0 11.83C0 13.96 0.560002 16.03 1.62 17.84L0.260002 22.84L5.38 21.5C7.13 22.45 9.07 22.95 11.95 22.95C18.59 22.95 23.9 17.67 23.9 11.83C23.9 8.62003 22.65 5.58003 20.37 3.32003H20.52ZM11.95 20.89C10.15 20.89 8.39999 20.4 6.84999 19.48L6.46999 19.26L3.41999 20.06L4.23999 17.08L3.99999 16.69C2.98999 15.09 2.45 13.23 2.45 11.29C2.45 6.07003 6.71 1.82003 11.95 1.82003C14.49 1.82003 16.9 2.81003 18.69 4.60003C20.48 6.39003 21.46 8.80003 21.46 11.34C21.45 16.56 17.18 20.89 11.95 20.89ZM17.17 13.8C16.88 13.66 15.46 12.96 15.19 12.87C14.93 12.77 14.73 12.72 14.54 13.01C14.35 13.3 13.8 13.94 13.64 14.13C13.48 14.32 13.31 14.35 13.02 14.21C12.73 14.07 11.81 13.76 10.72 12.79C9.86 12.03 9.28 11.08 9.12 10.79C8.96 10.5 9.1 10.35 9.24 10.21C9.37 10.08 9.53 9.87003 9.68 9.70003C9.82 9.53003 9.87 9.40003 9.97 9.21003C10.07 9.02003 10.02 8.86003 9.95 8.72003C9.88 8.58003 9.28 7.12003 9.04 6.53003C8.8 5.96003 8.56 6.04003 8.39 6.03003C8.22 6.02003 8.03 6.02003 7.84 6.02003C7.65 6.02003 7.34 6.09003 7.07 6.38003C6.8 6.67003 6.03 7.39003 6.03 8.85003C6.03 10.31 7.1 11.72 7.25 11.92C7.4 12.12 9.34 15.11 12.33 16.4C13.04 16.71 13.6 16.89 14.04 17.03C14.75 17.26 15.39 17.22 15.9 17.14C16.47 17.05 17.65 16.43 17.9 15.75C18.15 15.07 18.15 14.49 18.08 14.36C18.01 14.22 17.81 14.13 17.52 13.99L17.17 13.8Z"/>
+      </svg>
+      Checkout via WhatsApp
+    </button>
+  </div>
+</div>
+
+<script>
+  let cart = [];
+
+  function scrollToCart() {
+    if (cart.length === 0) {
+      alert("Please add some items to your cart first!");
+    } else {
+      document.getElementById('cart-widget').scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+  }
+
+  function addToCart(name, price) {
+    const existing = cart.find(i => i.name === name);
+    if (existing) {
+      existing.qty++;
+    } else {
+      cart.push({ name, price, qty: 1 });
+    }
+    updateCart();
+    
+    // Add brief visual feedback
+    const widget = document.getElementById('cart-widget');
+    widget.style.transform = 'translateY(-10px)';
+    setTimeout(() => {
+      widget.style.transform = 'translateY(0)';
+    }, 200);
+  }
+
+  function updateCart() {
+    const cartEl = document.getElementById('cart-items');
+    const countEl = document.getElementById('cart-count');
+    const totalEl = document.getElementById('cart-total');
+    
+    if (cart.length === 0) {
+      document.getElementById('cart-widget').classList.remove('active');
+      return;
+    }
+    document.getElementById('cart-widget').classList.add('active');
+    
+    let total = 0;
+    cartEl.innerHTML = cart.map(item => {
+      total += item.price * item.qty;
+      return `
+        <div class="cart-item">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">
+            ${item.qty}x AED ${item.price.toFixed(2)}
+            <button class="btn-remove" onclick="removeFromCart('${item.name}')">&times;</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+    
+    countEl.innerText = cart.reduce((sum, item) => sum + item.qty, 0);
+    totalEl.innerText = total.toFixed(2);
+  }
+
+  function removeFromCart(name) {
+    cart = cart.filter(i => i.name !== name);
+    updateCart();
+  }
+
+  function checkout() {
+    if (cart.length === 0) return;
+    
+    let text = "Hello Al Sarab! I would like to place an order:\n\n";
+    let total = 0;
+    cart.forEach(item => {
+      text += `- ${item.qty}x ${item.name} (AED ${(item.price * item.qty).toFixed(2)})\n`;
+      total += item.price * item.qty;
+    });
+    text += `\n*Total: AED ${total.toFixed(2)}*\n`;
+    text += "\nPlease let me know the expected delivery time.";
+    
+    const encodedText = encodeURIComponent(text);
+    // WhatsApp number provided in previous pages
+    window.open(`https://wa.me/971502041468?text=${encodedText}`, '_blank');
+  }
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Al Sarab Cafeteria</div>
+      <p>Serving the UAE with pride since 1988. Authentic Arabic, Chinese, and Indian flavours — open 24 hours across 15+ branches.</p>
+      <a href="mailto:alsarabgroupae@gmail.com" class="footer-email">alsarabgroupae@gmail.com</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Full Menu</a></li>
+        <li><a href="index.html#featured">Signature Specials</a></li>
+        <li><a href="index.html#branches">All Branches</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Cuisines</h4>
+      <ul>
+        <li>Arabic</li>
+        <li>Chinese</li>
+        <li>Indian</li>
+        <li>VAT Inclusive Pricing</li>
+        <li>Card Payments Accepted</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Al Sarab Cafeteria. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
