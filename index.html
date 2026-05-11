@@ -47,7 +47,7 @@
       border-bottom: 1px solid rgba(211,24,24,0.18);
     }
     .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.55rem; letter-spacing: 0.14em; color: var(--red); }
-    .nav-logo span { color: var(--cream); }
+    .nav-logo span { color: var(--red); }
     nav ul { list-style: none; display: flex; gap: 38px; align-items: center; }
     nav ul li a { text-decoration: none; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); transition: color 0.2s; }
     nav ul li a:hover { color: var(--red); }
@@ -68,8 +68,9 @@
       color: var(--red); margin-bottom: 30px;
     }
     .hero-tag::before { content: ''; display: block; width: 32px; height: 2px; background: var(--red); }
-    h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(5rem, 8.5vw, 9rem); line-height: 0.9; letter-spacing: 0.015em; color: var(--cream); margin-bottom: 14px; }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(5rem, 8.5vw, 9rem); line-height: 0.8; letter-spacing: 0.015em; color: var(--red); margin-bottom: 14px; }
     h1 .highlight { color: var(--red); }
+    .small-cafeteria { font-family: 'Barlow', sans-serif; text-transform: lowercase; font-size: 0.35em; font-weight: 600; letter-spacing: 0.05em; display: block; color: var(--cream); margin-top: 5px; }
     .hero-arabic { font-family: 'Noto Kufi Arabic', sans-serif; font-size: 1.7rem; color: rgba(17,17,17,0.5); margin-bottom: 30px; }
     .hero-desc { font-size: 1.05rem; line-height: 1.75; color: var(--light-text); max-width: 400px; margin-bottom: 46px; }
     .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
@@ -95,7 +96,7 @@
     .hero-panel-inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 40px; }
     .hero-food-svg { width: min(300px, 68%); margin-bottom: 30px; filter: drop-shadow(0 24px 48px rgba(26,17,8,0.4)); }
     .hero-logo-text { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.6rem, 5vw, 4.5rem); color: var(--dark); line-height: 1; letter-spacing: 0.06em; }
-    .hero-logo-sub { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-top: 6px; margin-bottom: 28px; }
+    .hero-logo-sub { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.3em; text-transform: lowercase; color: rgba(255,255,255,0.85); margin-top: 6px; margin-bottom: 28px; }
     .cuisine-badges { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
     .cuisine-badge { background: rgba(255,255,255,0.14); color: #ffffff; padding: 7px 16px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; border: 1.5px solid rgba(255,255,255,0.3); }
     .badge-24-row { margin-top: 28px; display: flex; align-items: center; gap: 12px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.9); }
@@ -336,7 +337,7 @@
 <section class="hero">
   <div class="hero-left">
     <div class="hero-tag">Since 1988 · Sharjah &amp; Dubai</div>
-    <h1>AL<br/><span class="highlight">SARAB</span><br/>CAFETERIA</h1>
+    <h1>AL<br/><span class="highlight">SARAB</span><br/><span class="small-cafeteria">cafeteria</span></h1>
     <div class="hero-arabic">كافتيريا السراب</div>
     <p class="hero-desc">Three decades of bold flavours — Arabic, Chinese, and Indian — served fresh, fast, and with heart across 15+ locations in the UAE.</p>
     <div class="hero-ctas">
@@ -363,7 +364,7 @@
       </div>
 
       <div class="hero-logo-text">Al Sarab</div>
-      <div class="hero-logo-sub">Cafeteria · Since 1988</div>
+      <div class="hero-logo-sub">cafeteria · Since 1988</div>
       <div class="cuisine-badges">
         <span class="cuisine-badge">Arabic</span>
         <span class="cuisine-badge">Chinese</span>
@@ -723,7 +724,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="footer-logo">Al Sarab Cafeteria</div>
+      <div class="footer-logo">Al Sarab <span style="text-transform: lowercase; font-size: 0.8em;">cafeteria</span></div>
       <p>Serving the UAE with pride since 1988. Authentic Arabic, Chinese, and Indian flavours — open 24 hours across 15+ branches.</p>
       <a href="mailto:alsarabgroupae@gmail.com" class="footer-email">alsarabgroupae@gmail.com</a>
     </div>
