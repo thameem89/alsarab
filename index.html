@@ -209,6 +209,15 @@
       text-align: center;
       border: 2px dashed rgba(211,24,24,0.2);
       animation: pulse-border 3s infinite ease-in-out;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s, border 0.3s, box-shadow 0.3s;
+    }
+    .branch-card.coming-soon:hover {
+      transform: translateY(-8px) scale(1.03);
+      background: #ffffff;
+      border-style: solid;
+      border-color: var(--red);
+      box-shadow: 0 20px 40px rgba(211,24,24,0.15);
+      cursor: default;
     }
     .coming-soon-text {
       font-family: 'Bebas Neue', sans-serif;
