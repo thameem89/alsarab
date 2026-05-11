@@ -1,0 +1,977 @@
+{
+  "restaurant": {
+    "name": "Sarab Cafeteria",
+    "subtitle": "Since 1988",
+    "location": "Near Rahmania Mall, Al Rahmaniya Sharjah",
+    "contact": {
+      "phone": ["050 204 1468", "050 137 2435", "06 574 6472"],
+      "email": "alsarabgroupae@gmail.com"
+    }
+  },
+  "menu_categories": [
+    {
+      "category": "Signature Special",
+      "items": [
+        {
+          "name": "WAGYU SLIDER (BEEF / CHICKEN)",
+          "arabic_name": "لحم بقر / دجاج",
+          "price": 32.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "SARAB TENDER CHEETOS",
+          "arabic_name": "تendence شيتوس ساراب",
+          "price": "18/23",
+          "currency": "DHS"
+        },
+        {
+          "name": "SIGNATURE ZINKER",
+          "arabic_name": "زنجر سبنشال",
+          "price": 15.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "DOUBLE MATHAFI BURGER",
+          "arabic_name": "برجر ماثافي دبل",
+          "price": 20.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "CLASSIC BURGER CHICKEN",
+          "arabic_name": "برجر شيش طاووس دجاج",
+          "price": null,
+          "currency": "DHS"
+        },
+        {
+          "name": "GRILLED BURGER (CHICKEN / BEEF)",
+          "arabic_name": "برجر مشوي دجاج/لحم بقر",
+          "price": null,
+          "currency": "DHS"
+        },
+        {
+          "name": "GRILLED MUSHROOM BURGER (CHICKEN / BEEF)",
+          "arabic_name": "برجر فطر مشوي دجاج/لحم بقر",
+          "price": null,
+          "currency": "DHS"
+        }
+      ]
+    },
+    {
+      "category": "Flask Tea",
+      "items": [
+        {
+          "item_number": 328,
+          "name": "KARAK TEA",
+          "arabic_name": "شاي كراك",
+          "price": "3/5",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 329,
+          "name": "BLACK TEA",
+          "arabic_name": "شاي ساده",
+          "price": "3/5",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 330,
+          "name": "NESCAFE",
+          "arabic_name": "نسكافيه",
+          "price": "5/9",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 331,
+          "name": "HORLICKS",
+          "arabic_name": "هورلكس",
+          "price": "5/9",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 332,
+          "name": "MALIKI TEA",
+          "arabic_name": "شاي مليكي",
+          "price": "4/5",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 333,
+          "name": "HOT CHOCOLATE",
+          "arabic_name": "شكولاته ساخنة",
+          "price": "5/9",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 334,
+          "name": "CAPPUCCINO",
+          "arabic_name": "كابتشينو",
+          "price": "5/9",
+          "currency": "DHS"
+        }
+      ]
+    },
+    {
+      "category": "Fresh Milk",
+      "items": [
+        {
+          "item_number": 335,
+          "name": "FRESH MILK TEA",
+          "arabic_name": "شاي حليب طازج",
+          "price": "2/4",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 336,
+          "name": "NESCAFE",
+          "arabic_name": "نسكافيه",
+          "price": "3/5",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 337,
+          "name": "HORLICKS",
+          "arabic_name": "هوريلكس",
+          "price": 5.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 338,
+          "name": "ZAFRAN",
+          "arabic_name": "زعفران",
+          "price": "3/5",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 339,
+          "name": "HALBA",
+          "arabic_name": "حليبة",
+          "price": "3/5",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 340,
+          "name": "GINGER MILK",
+          "arabic_name": "حليب زنجيل",
+          "price": "3/5",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 341,
+          "name": "CAPPUCCINO",
+          "arabic_name": "كابتشينو",
+          "price": 5.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 342,
+          "name": "BOOST",
+          "arabic_name": "بوست",
+          "price": "3/5",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 343,
+          "name": "CORNFLAKES",
+          "arabic_name": "كورنفليكس",
+          "price": "5/6",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 344,
+          "name": "ZAATAR",
+          "arabic_name": "زعتر",
+          "price": "2/4",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 345,
+          "name": "HOT CHOCOLATE",
+          "arabic_name": "شكولاته ساخنة",
+          "price": 5.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 346,
+          "name": "MALIKI TEA",
+          "arabic_name": "شاي مليكي",
+          "price": "5/8",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 347,
+          "name": "SAHLAB",
+          "arabic_name": "سحلي",
+          "price": 6.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 348,
+          "name": "CHOCO POWDER",
+          "arabic_name": "شوكوباودر",
+          "price": 8.00,
+          "currency": "DHS"
+        }
+      ]
+    },
+    {
+      "category": "Karak Tea & Coffee",
+      "items": [
+        {
+          "item_number": 349,
+          "name": "TEA",
+          "arabic_name": "شاي",
+          "price": "1.50/3",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 350,
+          "name": "KARAK MASALA",
+          "arabic_name": "كراك مسالا",
+          "price": "2/4",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 351,
+          "name": "KARAK GINGER",
+          "arabic_name": "كراك زنجيل",
+          "price": 2.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 352,
+          "name": "KARAK ZAFRAN",
+          "arabic_name": "كراك زعفران",
+          "price": "2/3",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 353,
+          "name": "BLACK TEA",
+          "arabic_name": "سليماني",
+          "price": 1.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 354,
+          "name": "ZAFRAN TEA",
+          "arabic_name": "شاي زعفران",
+          "price": 2.50,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 355,
+          "name": "CARDAMOM TEA",
+          "arabic_name": "شاي هيل",
+          "price": 1.50,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 356,
+          "name": "CINNAMON TEA",
+          "arabic_name": "شاي قرفة",
+          "price": 1.50,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 357,
+          "name": "MINT TEA",
+          "arabic_name": "شاي نعناع",
+          "price": 1.50,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 358,
+          "name": "MARAMIYA TEA",
+          "arabic_name": "شاي مراميه",
+          "price": 2.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 359,
+          "name": "KARAK ZAATAR",
+          "arabic_name": "شاي زعتر",
+          "price": "2/3",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 360,
+          "name": "LEMON TEA",
+          "arabic_name": "شاي ليمون",
+          "price": "1.50/3",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 361,
+          "name": "CHAMOMILE TEA",
+          "arabic_name": "شاي بابونج",
+          "price": 1.50,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 362,
+          "name": "ARABIC COFFEE",
+          "arabic_name": "قهوة عربي",
+          "price": "2/4",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 363,
+          "name": "TURKISH COFFEE",
+          "arabic_name": "قهوة تركي",
+          "price": "3/5/7",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 364,
+          "name": "RAJEEM TEA",
+          "arabic_name": "شاي روماني",
+          "price": "2/3",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 365,
+          "name": "GREEN TEA (TWININGS)",
+          "arabic_name": "شاي اخضر",
+          "price": "1.50/3",
+          "currency": "DHS"
+        },
+        {
+          "item_number": 366,
+          "name": "CHAMOMILE W. ANISE",
+          "arabic_name": "بابونج مع ينسون",
+          "price": "2/4",
+          "currency": "DHS"
+        }
+      ]
+    },
+    {
+      "category": "Burgers",
+      "items": [
+        {
+          "name": "MEGA ZINKER SP. (NORMAL)",
+          "price": 18.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "MEGA ZINKER SP. (SPICY)",
+          "price": 19.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "DOUBLE BURGER CHI./MEAT",
+          "price": "14/17",
+          "currency": "DHS"
+        },
+        {
+          "name": "ZINKER BURGER",
+          "price": 12.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "THAI STYLE BURGER",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "KHALEEJ BURGER",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "SARAB GRAND",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "CHICKEN BURGER",
+          "price": "8/12",
+          "currency": "DHS"
+        },
+        {
+          "name": "MEAT BURGER",
+          "price": "8/12",
+          "currency": "DHS"
+        },
+        {
+          "name": "VEG. BURGER",
+          "price": 9.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "JUMBO PRAWNS",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "CHICKEN FILLET",
+          "price": 12.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "FISH BURGER",
+          "price": 12.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "TANDOORI BURGER",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "ITALIAN EGGED ZINKER",
+          "price": 14.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "GARLIC BURGER",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "JALAPENO BURGER",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "CAJUN BURGER",
+          "price": 13.00,
+          "currency": "DHS"
+        }
+      ]
+    },
+    {
+      "category": "Zango Tasty",
+      "items": [
+        {
+          "name": "ZANGO PORATTA ROLL",
+          "price": 10.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "ZANGO BURGER",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "ZANGO WRAP",
+          "price": 14.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "ZANGO COMBO",
+          "price": 15.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "ZANGO KUKU",
+          "price": 16.00,
+          "currency": "DHS"
+        }
+      ]
+    },
+    {
+      "category": "Poratta Sandwiches",
+      "items": [
+        {
+          "name": "SARAB SP. PORATTA",
+          "price": 11.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "ZINKER PORATTA (NORMAL)",
+          "price": 10.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "ZINKER PORATTA (SPICY)",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "FANTASY PORATTA",
+          "price": 8.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "PERI PERI PORATTA",
+          "price": 8.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "LOS ANGELS PORATTA",
+          "price": 6.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "SHAMSIS PORATTA",
+          "price": 5.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "GREEN CHILLI PORATTA",
+          "price": 6.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "SNAPCHAT PORATTA",
+          "price": 8.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "TELEGRAM PORATTA",
+          "price": 11.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "INSTAGRAM PORATTA",
+          "price": 11.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "TIKKA PORATTA (NORMAL)",
+          "price": 7.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "TIKKA PORATTA (SPICY)",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "NASHIF PORATTA (CHICKEN/BEEF)",
+          "price": 6.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "MATHAFI PORATTA (NORMAL)",
+          "price": 11.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "MATHAFI PORATTA (SPICY)",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "JUMBO PRAWNS PORATTA",
+          "price": 7.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "KEEMA PORATTA",
+          "price": 3.50,
+          "currency": "DHS"
+        },
+        {
+          "name": "MEXICO PORATTA",
+          "price": 9.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "OMAN CHIPS",
+          "price": 3.50,
+          "currency": "DHS"
+        },
+        {
+          "name": "NUTELLA PORATTA",
+          "price": 5.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "PRAWNS PORATTA",
+          "price": 7.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "FRANCISCO PORATTA",
+          "price": 5.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "CHILLI PORATTA",
+          "price": 5.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "SAMOSA PORATTA",
+          "price": 3.50,
+          "currency": "DHS"
+        },
+        {
+          "name": "CHI. LEMON PORATTA",
+          "price": 7.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "MOROCCO PORATTA",
+          "price": 9.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "PUBG PORATTA",
+          "price": 9.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "OMELETTE CHIPS OMAN",
+          "price": 5.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "FALAFEL PORATTA",
+          "price": 4.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "HOTDOG PORATTA",
+          "price": 4.50,
+          "currency": "DHS"
+        }
+      ]
+    },
+    {
+      "category": "Sandwiches",
+      "items": [
+        {
+          "item_number": 81,
+          "name": "KABAB CHICKEN / MUTTON",
+          "arabic_name": "كباب دجاج / لحم",
+          "price": 6.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 82,
+          "name": "CHICKEN LIME",
+          "arabic_name": "دجاج ليمون",
+          "price": 7.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 83,
+          "name": "PRAWNS SANDWICH",
+          "arabic_name": "ساندوتش ربيان",
+          "price": 6.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 84,
+          "name": "BAHARIYA MIX",
+          "arabic_name": "بهاريا مكس",
+          "price": 6.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 85,
+          "name": "CHICKEN SAUSAGE",
+          "arabic_name": "سجق دجاج",
+          "price": 4.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 86,
+          "name": "CHICKEN MAYONNAISE",
+          "arabic_name": "دجاج مايونيز",
+          "price": 4.50,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 87,
+          "name": "VEG. SANDWICH",
+          "arabic_name": "ساندوتش خضار",
+          "price": 4.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 88,
+          "name": "EGG OMELETTE / BOILED",
+          "arabic_name": "بيض عجة / مسلوق",
+          "price": 3.50,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 89,
+          "name": "MEAT SANDWICH",
+          "arabic_name": "ساندوتش لحم",
+          "price": 5.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 90,
+          "name": "CHEESE POTATO",
+          "arabic_name": "بطاطا بالجبنه",
+          "price": 3.50,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 91,
+          "name": "POTATO SANDWICH",
+          "arabic_name": "ساندوتش بطاطا",
+          "price": 3.00,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 92,
+          "name": "FALAFEL SANDWICH",
+          "arabic_name": "ساندوتش فلافل",
+          "price": 3.50,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 93,
+          "name": "CHEESE SANDWICH",
+          "arabic_name": "ساندوتش جبنه",
+          "price": 2.50,
+          "currency": "DHS"
+        },
+        {
+          "item_number": 94,
+          "name": "CHICKEN NASHIF",
+          "arabic_name": "دجاج ناشف",
+          "price": 4.50,
+          "currency": "DHS"
+        },
+        {
+          "name": "EXTRA CHEESE",
+          "price": 1.00,
+          "currency": "DHS"
+        }
+      ]
+    },
+    {
+      "category": "Combo Sandwiches",
+      "items": [
+        {
+          "name": "SUPER MATHAFI COMBO",
+          "price": 16.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "ZINKER SUPREME (NORMAL)",
+          "price": 12.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "ZINKER SUPREME (SPICY)",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "ZINKER CHEETOS SUPREME",
+          "price": 16.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "BUTTERFLY PRAWNS",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "PRAWNS SUPREME",
+          "price": 14.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "PRAWNS JUMBO SUPREME",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "MATHAFI COMBO",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "CHICKEN FILLET SUPREME",
+          "price": 12.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "CHI. LEMON COMBO",
+          "price": 14.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "MEGA HOTDOG COMBO",
+          "price": 12.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "CAJUN COMBO",
+          "price": 14.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "CHI. NUGGETS COMBO",
+          "price": 12.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "CHICKEN 65 SUPREME",
+          "price": 12.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "TIKKA COMBO",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "KABAB SUPREME",
+          "price": 13.00,
+          "currency": "DHS"
+        }
+      ]
+    },
+    {
+      "category": "Arabic Sandwiches",
+      "items": [
+        {
+          "name": "ROLLEX ARABIC",
+          "price": 16.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "KUKU ARABI",
+          "price": 17.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "BABJI",
+          "price": 18.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "MOMO ARABI",
+          "price": 20.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "KUKU SARAB",
+          "price": 21.00,
+          "currency": "DHS"
+        }
+      ]
+    },
+    {
+      "category": "Signature Juices",
+      "items": [
+        {
+          "name": "FALAK",
+          "price": "13/17",
+          "currency": "DHS"
+        },
+        {
+          "name": "LAILA",
+          "price": 15.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "SALAH",
+          "price": 15.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "MONSTER",
+          "price": 15.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "ABOOD",
+          "price": "10/13",
+          "currency": "DHS"
+        },
+        {
+          "name": "MARIYAM SPECIAL",
+          "price": 15.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "THABAKATH",
+          "price": 15.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "MEHARA SPECIAL",
+          "price": 15.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "DUM",
+          "price": 15.00,
+          "currency": "DHS"
+        }
+      ]
+    },
+    {
+      "category": "Tender Coconut Special",
+      "items": [
+        {
+          "name": "TENDER COCONUT SHAKE",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "TENDER COCONUT + DATES",
+          "price": 14.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "TENDER COCONUT + STRAWBERRY",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "TENDER COCONUT + CHICKOO",
+          "price": 13.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "AADHU SPECIAL",
+          "price": 15.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "TENDER COCONUT + DRY FRUIT",
+          "price": 15.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "TENDER COCONUT + MANGO",
+          "price": 13.00,
+          "currency": "DHS"
+        }
+      ]
+    },
+    {
+      "category": "Meals",
+      "items": [
+        {
+          "name": "TREND MEAL",
+          "price": 25.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "FAMILY MEAL",
+          "price": 55.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "PARTY MEAL",
+          "price": 89.00,
+          "currency": "DHS"
+        },
+        {
+          "name": "FUNCTION MEAL",
+          "price": 109.00,
+          "currency": "DHS"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "source": "Sarab Cafeteria Menu PDF",
+    "extraction_date": "2026-05-11",
+    "total_items": 150,
+    "currency": "DHS (UAE Dirham)"
+  }
+}
