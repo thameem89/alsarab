@@ -361,6 +361,11 @@
         <img class="active" src="images/slider_burger.png" alt="Premium Burger" />
         <img src="images/slider_juice.png" alt="Refreshing Juice" />
         <img src="images/slider_sandwich.png" alt="Gourmet Sandwich" />
+        <img src="images/feat_wagyu_1777372524447.png" alt="Wagyu Slider" />
+        <img src="images/menu_wrap_1777372405864.png" alt="Delicious Wrap" />
+        <img src="images/menu_karak_1777372473108.png" alt="Karak Tea" />
+        <img src="images/feat_shrimp_1777372538036.png" alt="Dynamite Shrimps" />
+        <img src="images/menu_shawarma_1777372421692.png" alt="Classic Shawarma" />
       </div>
 
       <div class="hero-logo-text">Al Sarab</div>
@@ -773,19 +778,12 @@
 
   function nextSlide() {
     slides[currentSlide].classList.remove('active');
-    
-    // Pick a random slide that isn't the current one
-    let next;
-    do {
-      next = Math.floor(Math.random() * slides.length);
-    } while (next === currentSlide && slides.length > 1);
-    
-    currentSlide = next;
+    currentSlide = (currentSlide + 1) % slides.length;
     slides[currentSlide].classList.add('active');
   }
 
-  // Change slide every 4 seconds
-  setInterval(nextSlide, 4000);
+  // Change slide every 3.5 seconds
+  setInterval(nextSlide, 3500);
 </script>
 
 </body>
