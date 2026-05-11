@@ -106,25 +106,44 @@
       padding-bottom: 8px;
       letter-spacing: 0.04em;
     }
+    .category-banner {
+      width: 100%;
+      height: 120px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      display: none; /* Only show if image exists */
+    }
+    .category-banner.active { display: block; }
     .items-list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       gap: 20px;
     }
     .item-row {
       background: var(--mid);
-      padding: 20px;
-      border-radius: 8px;
+      padding: 12px;
+      border-radius: 12px;
       display: flex;
-      justify-content: space-between;
+      gap: 16px;
       align-items: center;
       transition: background 0.2s, transform 0.2s;
+      border: 1px solid rgba(0,0,0,0.03);
     }
     .item-row:hover {
       background: var(--mid2);
-      transform: translateX(4px);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
     }
-    .item-info { flex-grow: 1; padding-right: 20px; }
+    .item-img {
+      width: 85px;
+      height: 85px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #eee;
+      flex-shrink: 0;
+    }
+    .item-info { flex-grow: 1; display: flex; flex-direction: column; gap: 4px; }
     .item-name {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.3rem;
@@ -144,8 +163,10 @@
     .item-price {
       font-weight: 700;
       color: var(--red);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       white-space: nowrap;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.05em;
     }
     .btn-add-mini {
       background: var(--red);
@@ -254,37 +275,41 @@
 </div>
 
 <main id="menu-content">
-  <!-- Signature Specials -->
   <section class="menu-category" id="signature">
     <h2 class="menu-category-title">Signature Special</h2>
+    <img src="images/feat_wagyu_1777372524447.png" class="category-banner active" alt="Signature Specials">
     <div class="items-list">
       <div class="item-row">
+        <img src="images/feat_wagyu_1777372524447.png" class="item-img" alt="Wagyu Slider">
         <div class="item-info">
-          <div class="item-name">Wagyu Slider (Beef / Chicken)</div>
+          <div class="item-name">WAGYU SLIDER (BEEF / CHICKEN)</div>
           <div class="item-arabic">لحم بقر / دجاج</div>
         </div>
         <div class="item-price">AED 32.00</div>
         <button class="btn-add-mini" onclick="addToCart('Wagyu Slider', 32)">Add +</button>
       </div>
       <div class="item-row">
+        <img src="images/menu_fried_chicken_1777372438970.png" class="item-img" alt="Sarab Tender Cheetos">
         <div class="item-info">
-          <div class="item-name">Sarab Tender Cheetos</div>
-          <div class="item-arabic">تندرز شيتوس ساراب</div>
+          <div class="item-name">SARAB TENDER CHEETOS</div>
+          <div class="item-arabic">ساراب تيندر شيتوس</div>
         </div>
         <div class="item-price">AED 18/23</div>
         <button class="btn-add-mini" onclick="addToCart('Sarab Tender Cheetos', 18)">Add +</button>
       </div>
       <div class="item-row">
+        <img src="images/menu_burger_1777372388716.png" class="item-img" alt="Signature Zinker">
         <div class="item-info">
-          <div class="item-name">Signature Zinker</div>
-          <div class="item-arabic">زنجر سبيشال</div>
+          <div class="item-name">SIGNATURE ZINKER</div>
+          <div class="item-arabic">زنجر سبنشال</div>
         </div>
         <div class="item-price">AED 15.00</div>
         <button class="btn-add-mini" onclick="addToCart('Signature Zinker', 15)">Add +</button>
       </div>
       <div class="item-row">
+        <img src="images/menu_burger_1777372388716.png" class="item-img" alt="Double Mathafi Burger">
         <div class="item-info">
-          <div class="item-name">Double Mathafi Burger</div>
+          <div class="item-name">DOUBLE MATHAFI BURGER</div>
           <div class="item-arabic">برجر ماثافي دبل</div>
         </div>
         <div class="item-price">AED 20.00</div>
@@ -296,70 +321,70 @@
   <!-- Flask Tea -->
   <section class="menu-category" id="tea" style="background: var(--mid);">
     <h2 class="menu-category-title">Flask Tea & Hot Drinks</h2>
+    <img src="images/menu_karak_1777372473108.png" class="category-banner active" alt="Hot Drinks">
     <div class="items-list">
       <div class="item-row">
+        <img src="images/menu_karak_1777372473108.png" class="item-img" alt="Karak Tea">
         <div class="item-info">
-          <div class="item-name">Karak Tea</div>
+          <div class="item-name">KARAK TEA</div>
           <div class="item-arabic">شاي كراك</div>
         </div>
         <div class="item-price">AED 3/5</div>
         <button class="btn-add-mini" onclick="addToCart('Karak Tea', 3)">Add +</button>
       </div>
       <div class="item-row">
+        <img src="images/menu_karak_1777372473108.png" class="item-img" alt="Maliki Tea">
         <div class="item-info">
-          <div class="item-name">Maliki Tea</div>
+          <div class="item-name">MALIKI TEA</div>
           <div class="item-arabic">شاي مليكي</div>
         </div>
         <div class="item-price">AED 4/5</div>
         <button class="btn-add-mini" onclick="addToCart('Maliki Tea', 4)">Add +</button>
       </div>
       <div class="item-row">
+        <img src="images/menu_karak_1777372473108.png" class="item-img" alt="Arabic Coffee">
         <div class="item-info">
-          <div class="item-name">Arabic Coffee</div>
+          <div class="item-name">ARABIC COFFEE</div>
           <div class="item-arabic">قهوة عربي</div>
         </div>
         <div class="item-price">AED 2/4</div>
         <button class="btn-add-mini" onclick="addToCart('Arabic Coffee', 2)">Add +</button>
       </div>
-      <div class="item-row">
-        <div class="item-info">
-          <div class="item-name">Turkish Coffee</div>
-          <div class="item-arabic">قهوة تركي</div>
-        </div>
-        <div class="item-price">AED 3/5/7</div>
-        <button class="btn-add-mini" onclick="addToCart('Turkish Coffee', 3)">Add +</button>
-      </div>
     </div>
   </section>
 
-  <!-- Burgers -->
   <section class="menu-category" id="burgers">
     <h2 class="menu-category-title">Burgers</h2>
+    <img src="images/menu_burger_1777372388716.png" class="category-banner active" alt="Burgers">
     <div class="items-list">
       <div class="item-row">
+        <img src="images/menu_burger_1777372388716.png" class="item-img" alt="Mega Zinker">
         <div class="item-info">
-          <div class="item-name">Mega Zinker Sp. (Normal)</div>
+          <div class="item-name">MEGA ZINKER SP. (NORMAL)</div>
         </div>
         <div class="item-price">AED 18.00</div>
         <button class="btn-add-mini" onclick="addToCart('Mega Zinker Sp.', 18)">Add +</button>
       </div>
       <div class="item-row">
+        <img src="images/menu_burger_1777372388716.png" class="item-img" alt="Double Burger">
         <div class="item-info">
-          <div class="item-name">Double Burger Chicken/Meat</div>
+          <div class="item-name">DOUBLE BURGER CHI./MEAT</div>
         </div>
         <div class="item-price">AED 14/17</div>
         <button class="btn-add-mini" onclick="addToCart('Double Burger', 14)">Add +</button>
       </div>
       <div class="item-row">
+        <img src="images/menu_burger_1777372388716.png" class="item-img" alt="Zinker Burger">
         <div class="item-info">
-          <div class="item-name">Zinker Burger</div>
+          <div class="item-name">ZINKER BURGER</div>
         </div>
         <div class="item-price">AED 12.00</div>
         <button class="btn-add-mini" onclick="addToCart('Zinker Burger', 12)">Add +</button>
       </div>
       <div class="item-row">
+        <img src="images/feat_shrimp_1777372538036.png" class="item-img" alt="Jumbo Prawns">
         <div class="item-info">
-          <div class="item-name">Jumbo Prawns Burger</div>
+          <div class="item-name">JUMBO PRAWNS BURGER</div>
         </div>
         <div class="item-price">AED 13.00</div>
         <button class="btn-add-mini" onclick="addToCart('Jumbo Prawns Burger', 13)">Add +</button>
@@ -370,34 +395,31 @@
   <!-- Poratta -->
   <section class="menu-category" id="poratta" style="background: var(--mid);">
     <h2 class="menu-category-title">Poratta Sandwiches</h2>
+    <img src="images/menu_wrap_1777372405864.png" class="category-banner active" alt="Poratta Sandwiches">
     <div class="items-list">
       <div class="item-row">
+        <img src="images/menu_wrap_1777372405864.png" class="item-img" alt="Sarab Sp. Poratta">
         <div class="item-info">
-          <div class="item-name">Sarab Sp. Poratta</div>
+          <div class="item-name">SARAB SP. PORATTA</div>
         </div>
         <div class="item-price">AED 11.00</div>
         <button class="btn-add-mini" onclick="addToCart('Sarab Sp. Poratta', 11)">Add +</button>
       </div>
       <div class="item-row">
+        <img src="images/menu_wrap_1777372405864.png" class="item-img" alt="Zinker Poratta">
         <div class="item-info">
-          <div class="item-name">Zinker Poratta</div>
+          <div class="item-name">ZINKER PORATTA</div>
         </div>
         <div class="item-price">AED 10.00</div>
         <button class="btn-add-mini" onclick="addToCart('Zinker Poratta', 10)">Add +</button>
       </div>
       <div class="item-row">
+        <img src="images/menu_fries_1777372505020.png" class="item-img" alt="Oman Chips Poratta">
         <div class="item-info">
-          <div class="item-name">Oman Chips Poratta</div>
+          <div class="item-name">OMAN CHIPS PORATTA</div>
         </div>
         <div class="item-price">AED 3.50</div>
         <button class="btn-add-mini" onclick="addToCart('Oman Chips Poratta', 3.5)">Add +</button>
-      </div>
-      <div class="item-row">
-        <div class="item-info">
-          <div class="item-name">Instagram Poratta</div>
-        </div>
-        <div class="item-price">AED 11.00</div>
-        <button class="btn-add-mini" onclick="addToCart('Instagram Poratta', 11)">Add +</button>
       </div>
     </div>
   </section>
@@ -441,24 +463,28 @@
   <!-- Juices -->
   <section class="menu-category" id="juices" style="background: var(--mid);">
     <h2 class="menu-category-title">Signature Juices & Coconut</h2>
+    <img src="images/menu_juice_1777372455880.png" class="category-banner active" alt="Juices">
     <div class="items-list">
       <div class="item-row">
+        <img src="images/menu_juice_1777372455880.png" class="item-img" alt="Falak Juice">
         <div class="item-info">
-          <div class="item-name">Falak Juice</div>
+          <div class="item-name">FALAK JUICE</div>
         </div>
         <div class="item-price">AED 13/17</div>
         <button class="btn-add-mini" onclick="addToCart('Falak Juice', 13)">Add +</button>
       </div>
       <div class="item-row">
+        <img src="images/menu_juice_1777372455880.png" class="item-img" alt="Abood Juice">
         <div class="item-info">
-          <div class="item-name">Abood Juice</div>
+          <div class="item-name">ABOOD JUICE</div>
         </div>
         <div class="item-price">AED 10/13</div>
         <button class="btn-add-mini" onclick="addToCart('Abood Juice', 10)">Add +</button>
       </div>
       <div class="item-row">
+        <img src="images/slider_juice.png" class="item-img" alt="Tender Coconut Shake">
         <div class="item-info">
-          <div class="item-name">Tender Coconut Shake</div>
+          <div class="item-name">TENDER COCONUT SHAKE</div>
         </div>
         <div class="item-price">AED 13.00</div>
         <button class="btn-add-mini" onclick="addToCart('Tender Coconut Shake', 13)">Add +</button>
@@ -466,20 +492,30 @@
     </div>
   </section>
 
-  <!-- Meals -->
   <section class="menu-category" id="meals">
     <h2 class="menu-category-title">Value Meals</h2>
+    <img src="images/feat_family_meal_1777372554145.png" class="category-banner active" alt="Value Meals">
     <div class="items-list">
       <div class="item-row">
+        <img src="images/feat_family_meal_1777372554145.png" class="item-img" alt="Trend Meal">
         <div class="item-info">
-          <div class="item-name">Broast Family Meal</div>
+          <div class="item-name">TREND MEAL</div>
+        </div>
+        <div class="item-price">AED 25.00</div>
+        <button class="btn-add-mini" onclick="addToCart('Trend Meal', 25)">Add +</button>
+      </div>
+      <div class="item-row">
+        <img src="images/feat_family_meal_1777372554145.png" class="item-img" alt="Family Meal">
+        <div class="item-info">
+          <div class="item-name">FAMILY MEAL</div>
         </div>
         <div class="item-price">AED 55.00</div>
         <button class="btn-add-mini" onclick="addToCart('Family Meal', 55)">Add +</button>
       </div>
       <div class="item-row">
+        <img src="images/feat_family_meal_1777372554145.png" class="item-img" alt="Function Meal">
         <div class="item-info">
-          <div class="item-name">Function Meal (Broast)</div>
+          <div class="item-name">FUNCTION MEAL</div>
         </div>
         <div class="item-price">AED 109.00</div>
         <button class="btn-add-mini" onclick="addToCart('Function Meal', 109)">Add +</button>
