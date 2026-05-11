@@ -1,0 +1,127 @@
+{
+  "brand": "Al Sarab Cafeteria",
+  "source": "Google Maps",
+  "locations": [
+    {
+      "id": 1,
+      "city": "SHARJAH",
+      "area": "Muwaileh Commercial",
+      "branch": "Maliha Road",
+      "address": "Block F, 584, Maliha Road, Muwaileh Commercial, Sharjah",
+      "google_maps_url": "https://www.google.com/maps/search/Al+Sarab+Cafeteria+Maliha+Road+Sharjah",
+      "coordinates": {
+        "latitude": 25.285443,
+        "longitude": 55.453358
+      },
+      "rating": 3.9,
+      "phone": ["+971 6 558 4070", "+971 56 152 2007"],
+      "is_24_hours": true
+    },
+    {
+      "id": 2,
+      "city": "SHARJAH",
+      "area": "Muwaileh Commercial",
+      "branch": "University City Road",
+      "address": "343, University City Road, Muwaileh Commercial, Sharjah",
+      "google_maps_url": "https://www.google.com/maps/search/Al+Sarab+Cafeteria+University+City+Road+Sharjah",
+      "coordinates": {
+        "latitude": 25.310962,
+        "longitude": 55.45968
+      },
+      "rating": 4.4,
+      "phone": ["+971 6 740 3059"],
+      "is_24_hours": true
+    },
+    {
+      "id": 3,
+      "city": "SHARJAH",
+      "area": "Industrial Area",
+      "branch": "Al Wahda Street",
+      "address": "89FR+78R - Al Wahda Street, Industrial Area 1, Sharjah",
+      "google_maps_url": "https://www.google.com/maps/search/Al+Sarab+Cafeteria+Al+Wahda+Street+Sharjah",
+      "coordinates": {
+        "latitude": 25.3232297,
+        "longitude": 55.3907764
+      },
+      "rating": 3.6,
+      "phone": ["+971 6 532 5510"],
+      "is_24_hours": true,
+      "note": "Closes 2 AM"
+    },
+    {
+      "id": 4,
+      "city": "SHARJAH",
+      "area": "Al Shahba",
+      "branch": "Wasit Street",
+      "address": "Near Sunny Medical Center, Wasit Street, Al Shahba, Sharjah",
+      "google_maps_url": "https://www.google.com/maps/search/Al+Sarab+Cafeteria+Wasit+Street+Sharjah",
+      "coordinates": {
+        "latitude": 25.337755,
+        "longitude": 55.427458
+      },
+      "rating": 4.0,
+      "phone": ["+971 6 558 3264"],
+      "is_24_hours": true
+    },
+    {
+      "id": 5,
+      "city": "SHARJAH",
+      "area": "Al Rahmaniya",
+      "branch": "Rahmania Mall",
+      "address": "Near Rahmania Mall, Al Rahmaniya, Sharjah",
+      "google_maps_url": "https://www.google.com/maps/search/Al+Sarab+Cafeteria+Rahmania+Sharjah",
+      "coordinates": {
+        "latitude": 25.3294375,
+        "longitude": 55.6036875
+      },
+      "rating": 4.0,
+      "phone": ["+971 6 574 6472", "+971 50 137 2435"],
+      "is_24_hours": true
+    },
+    {
+      "id": 6,
+      "city": "SHARJAH",
+      "area": "Al Ghubaiba",
+      "branch": "Al Ghubaiba",
+      "address": "East 311, Al Ghubaiba, Sharjah",
+      "google_maps_url": "https://www.google.com/maps/search/Al+Sarab+Cafeteria+Al+Ghubaiba+Sharjah",
+      "coordinates": {
+        "latitude": 25.3419171,
+        "longitude": 55.4082521
+      },
+      "rating": 3.9,
+      "phone": ["+971 6 567 6418"],
+      "is_24_hours": true
+    },
+    {
+      "id": 7,
+      "city": "DUBAI",
+      "area": "Ras Al Khor",
+      "branch": "Marhaba Mall",
+      "address": "Shop 4 & 5, Ground Floor, Marhaba Mall, Ras Al Khor, Dubai",
+      "google_maps_url": "https://www.google.com/maps/search/Al+Sarab+Cafeteria+Marhaba+Mall+Ras+Al+Khor+Dubai",
+      "coordinates": {
+        "latitude": 25.1824059,
+        "longitude": 55.3770717
+      },
+      "rating": 3.6,
+      "phone": ["+971 4 289 8333"],
+      "is_24_hours": true
+    },
+    {
+      "id": 8,
+      "city": "AJMAN",
+      "area": "Al Yasmeen",
+      "branch": "Al Yasmeen",
+      "address": "Al Yasmeen, Eastern Sector, Ajman Ring Road, Ajman",
+      "google_maps_url": "https://www.google.com/maps/search/Al+Sarab+Cafeteria+Al+Yasmeen+Ajman",
+      "coordinates": {
+        "latitude": 25.3294415,
+        "longitude": 55.5580353
+      },
+      "rating": 4.0,
+      "phone": ["+971 54 245 4594"],
+      "is_24_hours": true
+    }
+  ]
+}
